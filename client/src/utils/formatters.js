@@ -1,0 +1,16 @@
+export const formatVND = (value) => {
+  if (value === undefined || value === null) return "0 đ";
+  return new Intl.NumberFormat("vi-VN").format(value) + " đ";
+};
+
+export const formatDate = (dateString) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(date);
+};
